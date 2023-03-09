@@ -522,7 +522,7 @@
         <location filename="../src/ui/delegates/partition_util.cpp" line="310"/>
         <location filename="../src/ui/delegates/partition_util.cpp" line="341"/>
         <source>Freespace</source>
-        <translation>Üres hely</translation>
+        <translation>Szabad hely</translation>
     </message>
     <message>
         <location filename="../src/ui/first_boot_setup_window.cpp" line="429"/>
@@ -716,7 +716,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="277"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="327"/>
         <source>Install NVIDIA closed source driver</source>
-        <translation>Telepítse az NVIDIA zárt forráskódú illesztőprogramot</translation>
+        <translation>Telepítse az NVIDIA® zárt forráskódú illesztőprogramot</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="593"/>
@@ -861,7 +861,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
         <source>Encrypt This Disk</source>
         <translation>A lemez titkosítása</translation>
@@ -894,15 +894,21 @@
         <translation>Jelszó ismétlése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
         <source>Keep User Data</source>
         <translation>Felhasználói adatok megőrzése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="350"/>
         <source>Please select a disk to start installation</source>
         <translation>Kérjük válasszon egy lemezt a telepítés indításához</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="355"/>
+        <source>Using disk encryption may affect disk performance.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="265"/>
@@ -915,7 +921,7 @@
         <translation>Felhasználói adatok mentése</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="507"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="514"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1232,7 +1238,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
         <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
-        <translation>Adjon hozzá ujjlenyomat jelszavakat a Vezérlőközpontban a zárolás feloldásához és hitelesítéséhez</translation>
+        <translation>Adjon hozzá ujjlenyomat jelszavakat a Vezérlőpultban a zárolás feloldásához és hitelesítéséhez</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -2028,7 +2034,7 @@
     <message>
         <location filename="../src/ui/models/mount_point_model.cpp" line="40"/>
         <source>auto mount</source>
-        <translation>automatikus csatolás</translation>
+        <translation>Automatikus csatolás</translation>
     </message>
     <message>
         <location filename="../src/ui/models/package_manager_model.cpp" line="20"/>

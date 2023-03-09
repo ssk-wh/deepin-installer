@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.0" language="en" sourcelanguage="en">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.0" language="en" sourcelanguage="en">
 <context>
     <name>ConfirmQuitFrame</name>
     <message>
@@ -861,7 +863,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
         <source>Encrypt This Disk</source>
         <translation>Encrypt This Disk</translation>
@@ -894,15 +896,21 @@
         <translation>Repeat Password</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
         <source>Keep User Data</source>
         <translation>Keep User Data</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="350"/>
         <source>Please select a disk to start installation</source>
         <translation>Please select a disk to start installation</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="355"/>
+        <source>Using disk encryption may affect disk performance.</source>
+        <translation>Using disk encryption may affect disk performance.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="265"/>
@@ -915,7 +923,7 @@
         <translation>Save User Data</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="507"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="514"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>

@@ -622,13 +622,13 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
         <source>You need at least %1 GB of disk space to install the system. If you want to use the full-disk installation, a minimum of %2 GB is required.</source>
-        <translation type="unfinished"/>
+        <translation>سىستېما قاچىلاشقا ئاز بولغاندا %1 GB دىسكا بوشلۇقى كېتىدۇ، تولۇق نۇسخىسىنى قاچىلىماقچى بولسىڭىز %2 GB دىسكا بوشلۇقى كېتىدۇ</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="273"/>
         <source>The free disk space is less than %1 GB, so you should configure partitions manually. To use the full-disk installation, a minimum of %2 GB is required.</source>
-        <translation type="unfinished"/>
+        <translation>نۆۋەتتىكى دىسكا بوشلۇقى %1 GB غا يەتمەتدۇ، پەقەت قولدا قاچىلىغىلى بولىدۇ، تولۇق نۇسخىسىنى قاچىلىماقچى بولسىڭىز، ئاز بولغاندا %2 GB بوشلۇق كېتىدۇ</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="96"/>
@@ -861,7 +861,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
         <source>Encrypt This Disk</source>
         <translation>پۈتۈن دىسكىنى پاروللاش</translation>
@@ -894,20 +894,26 @@
         <translation>پارولنى ئەسلىگە قايتۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
         <source>Keep User Data</source>
         <translation> ئىشلەتكۈچى سانلىق مەلۇماتلىرىنى قالدۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="350"/>
         <source>Please select a disk to start installation</source>
         <translation>بىر دىسكىنى تاللاپ قاچىلاڭ</translation>
     </message>
     <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="355"/>
+        <source>Using disk encryption may affect disk performance.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="265"/>
         <source>Resize Root partition</source>
-        <translation type="unfinished"/>
+        <translation>غول رايوننىڭ سىغىمىنى تەڭشەش</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="331"/>
@@ -915,7 +921,7 @@
         <translation>ئىشلەتكۈچى سانلىق مەلۇماتىنى ساقلاش</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="507"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="514"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1232,7 +1238,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
         <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
-        <translation type="unfinished"/>
+        <translation>بۇ ئۈسكۈنە بارماق ئىزىنى تونۇشنى قوللايدۇ، «كونترول مەركىزى»دىن بارماق ئىزى پارولى قوشالايسىز.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -1620,7 +1626,7 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="294"/>
         <source>The partition is created on an unavailable device, so its configurations will be reset</source>
-        <translation type="unfinished"/>
+        <translation>بۇ رايون مەۋجۇت بولمىغان ئۈسكۈنىنى تاللىدى، رايون ھالىتىنى ئەسلىگە قايتۇرۇشىڭىز كېرەك</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="298"/>
@@ -1673,12 +1679,12 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="1295"/>
         <source>Disk Assignment</source>
-        <translation type="unfinished"/>
+        <translation>دىسكىنى ئاپتوماتىك تەقسىملەش</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="1316"/>
         <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
-        <translation type="unfinished"/>
+        <translation>سۈكۈتتىكى ھالەتتە، ئاپتوماتىك ھالدا %1 دىسكا سىستېما قاچىلىنىدىغان دىسكا، %2 دىسكا سانلىق مەلۇمات دىسكىسى قىلىنىدۇ</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>
@@ -2112,7 +2118,7 @@
     <message>
         <location filename="../src/service/password_manager.cpp" line="133"/>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>پارول ئىشلەتكۈچى نامى بىلەن ئوخشاش بولسا بولمايدۇ</translation>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="143"/>
@@ -2122,58 +2128,58 @@
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1118"/>
         <source>Preparing...</source>
-        <translation type="unfinished"/>
+        <translation>تەييارلىنىۋاتىدۇ...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1121"/>
         <source>Partitioning...</source>
-        <translation type="unfinished"/>
+        <translation>رايونغا بۆلۈۋاتىدۇ...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1124"/>
         <source>Decompressing files...</source>
-        <translation type="unfinished"/>
+        <translation>ھۆججەتنى پىرىسلاۋاتىدۇ...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1127"/>
         <source>Installing system...</source>
-        <translation type="unfinished"/>
+        <translation>سىستېما قاچىلىنىۋاتىدۇ...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1130"/>
         <source>Initial backup in progress...</source>
-        <translation type="unfinished"/>
+        <translation>دەسلەپكى زاپاسلاش ئېلىپ بېرىلىۋاتىدۇ...</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1133"/>
         <source>Finishing installation...</source>
-        <translation type="unfinished"/>
+        <translation>قاچىلىنىپ بولاي دەپ قالدى...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="164"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
+        <translation>قوشۇلىمەن</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="165"/>
         <source>Resize Root Partition</source>
-        <translation type="unfinished"/>
+        <translation>غول رايوننىڭ سىغىمىنى تەڭشەش</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="166"/>
         <source>Enter a size (%1 GB - %2 GB)</source>
-        <translation type="unfinished"/>
+        <translation>غول رايوننىڭ سىغىمىنى كىرگۈزۈڭ (%1 GB - %2 GB)</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/verifycheck_frame.cpp" line="46"/>
         <location filename="../src/ui/frames/verifycheck_frame.cpp" line="85"/>
         <source>Verifying image files...</source>
-        <translation type="unfinished"/>
+        <translation>تەسۋىر ھۆججەتنى تەكشۈرۈۋاتىدۇ...</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/verifycheck_frame.cpp" line="123"/>
         <source>Verify ISO</source>
-        <translation type="unfinished"/>
+        <translation>تەسۋىرنى تەكشۈرۈۋاتىدۇ</translation>
     </message>
 </context>
 <context>

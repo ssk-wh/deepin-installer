@@ -644,7 +644,7 @@
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="97"/>
         <location filename="../src/ui/frames_cli/install_success_frame.cpp" line="190"/>
         <source>Exit</source>
-        <translation>Wyjście</translation>
+        <translation>Wyjdź</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/dynamic_disk_warning_frame.cpp" line="117"/>
@@ -861,7 +861,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
         <source>Encrypt This Disk</source>
         <translation>Zaszyfruj ten dysk</translation>
@@ -869,7 +869,7 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="328"/>
         <source>Take care of your password, otherwise, all your data will be lost</source>
-        <translation>Dobrze zabezpiecz to hasło, w innym wypadku wszystkie twoje dane zostaną utracone</translation>
+        <translation>Dobrze zabezpiecz to hasło, aby uniknąć utraty danych, gdy go zapomnisz</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="330"/>
@@ -894,15 +894,21 @@
         <translation>Powtórz hasło</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
         <source>Keep User Data</source>
         <translation>Zachowaj dane użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="350"/>
         <source>Please select a disk to start installation</source>
         <translation>Wybierz dysk, aby rozpocząć instalację</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="355"/>
+        <source>Using disk encryption may affect disk performance.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="265"/>
@@ -915,7 +921,7 @@
         <translation>Zapisz dane użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="507"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="514"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>

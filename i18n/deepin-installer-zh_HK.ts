@@ -674,7 +674,7 @@
         <location filename="../src/ui/frames_cli/inner/savelog_frame.cpp" line="92"/>
         <location filename="../src/ui/main_window.cpp" line="551"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>取 消</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/first_boot_loading_frame.cpp" line="55"/>
@@ -861,7 +861,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
         <source>Encrypt This Disk</source>
         <translation>全盤加密</translation>
@@ -894,15 +894,21 @@
         <translation>確認密碼</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
         <source>Keep User Data</source>
         <translation>保留用戶數據</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="350"/>
         <source>Please select a disk to start installation</source>
         <translation>請選擇一個磁盤進行安裝</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="355"/>
+        <source>Using disk encryption may affect disk performance.</source>
+        <translation>使用全盤加密可能會影響磁盤性能</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="265"/>
@@ -915,7 +921,7 @@
         <translation>保存用戶數據</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="507"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="514"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1789,7 +1795,7 @@
         <location filename="../src/ui/interfaces_cli/frameinterfaceprivate.h" line="43"/>
         <location filename="../src/ui/interfaces_cli/frameinterfaceprivate.h" line="106"/>
         <source>Back</source>
-        <translation>返回</translation>
+        <translation>返 回</translation>
     </message>
     <message>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="102"/>

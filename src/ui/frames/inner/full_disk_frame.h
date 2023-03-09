@@ -100,6 +100,7 @@ private:
     QGridLayout*      m_grid_layout  = nullptr;
     QFrame*           m_grid_wrapper = nullptr;
     QCheckBox*        m_encryptCheck = nullptr;
+    QLabel*           m_encryptTip   = nullptr;
     QLabel*           m_errorTip     = nullptr;
     QLabel*           m_diskTooSmallTip     = nullptr;
     QCheckBox*        m_resizeCheck = nullptr;

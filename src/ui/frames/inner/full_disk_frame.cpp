@@ -261,6 +261,7 @@ void FullDiskFrame::changeEvent(QEvent* event) {
         m_saveDataCheck->setText(::QObject::tr("Keep User Data"));
         m_encryptCheck->setText(::QObject::tr("Encrypt This Disk"));
         m_errorTip->setText(::QObject::tr("Please select a disk to start installation"));
+        m_encryptTip->setText(::QObject::tr("Using disk encryption may affect disk performance."));
         m_resizeCheck->setText(::QObject::tr("Resize Root partition"));
 
         if ( !m_tip_label->text().isEmpty() ) {
@@ -347,6 +348,12 @@ void FullDiskFrame::initUI() {
   m_errorTip->setObjectName("msg_label");
   m_errorTip->hide();
   addTransLate(m_trList, std::bind(&QLabel::setText, m_errorTip, std::placeholders::_1), ::QObject::tr("Please select a disk to start installation"));
+
+  m_encryptTip = new QLabel;
+  m_encryptTip->setStyleSheet("color:#f9704f;");
+  m_encryptTip->setVisible(false);
+  m_encryptTip->setText(::QObject::tr("Using disk encryption may affect disk performance."));
+
 
   m_diskTooSmallTip = new QLabel;
   m_diskTooSmallTip->setObjectName("msg_label");
@@ -438,6 +445,7 @@ void FullDiskFrame::initUI() {
   main_layout->addSpacing(10);
   main_layout->setAlignment(h_layout, Qt::AlignHCenter);
   main_layout->addWidget(m_errorTip, 0, Qt::AlignHCenter);
+  main_layout->addWidget(m_encryptTip, 0, Qt::AlignHCenter);
   main_layout->addLayout(tipLayout);
   main_layout->addSpacing(10);
 
@@ -710,8 +718,7 @@ void FullDiskFrame::cryptoStateChanged(bool crypto)
             setSaveDataCheckboxStat(testdevicelist.at(i), i);
         }
     }
-
-    m_encryptCheck->setChecked(crypto);
+    m_encryptTip->setVisible(crypto);
 }
 
 void FullDiskFrame::onResizeRootFrameFinished() {

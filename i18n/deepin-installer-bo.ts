@@ -861,7 +861,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
         <source>Encrypt This Disk</source>
         <translation>ཚང་མར་གསང་ཨང་བཟོ་བ།</translation>
@@ -894,15 +894,21 @@
         <translation>གསང་ཨང་བསྐྱར་ཟློས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
         <source>Keep User Data</source>
         <translation>སྤྱོད་མཁན་གྱི་གཞི་གྲངས་ཉར་ཚགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="350"/>
         <source>Please select a disk to start installation</source>
         <translation>སྡུད་སྡེར་ཞིག་བདམས་ནས་སྒྲིག་འཇུག་གནང་དང་།</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="355"/>
+        <source>Using disk encryption may affect disk performance.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="265"/>
@@ -915,7 +921,7 @@
         <translation>སྤྱོད་མཁན་གྱི་གཞི་གྲངས་ཉར་ཚགས།</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="507"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="514"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1232,7 +1238,7 @@
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="809"/>
         <source>Add fingerprint passwords in Control Center to unlock and authenticate</source>
-        <translation type="unfinished"/>
+        <translation>འཕྲུལ་ཆས་འདིས་མཛུབ་རིས་ངོས་འཛིན་ལ་རྒྱབ་སྐྱོར་ཡོད་པས། ཁྱེད་ཀྱིས་“ཚོད་འཛིན་ལྟེ་གནས་”ནས་མཛུབ་རིས་གསང་ཨང་སྣོན་ཆོག</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/system_info_form_frame.cpp" line="810"/>
@@ -1678,7 +1684,7 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="1316"/>
         <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲིག་སྦྱོར་སོར་བཞག་ཡིན་པས། རང་འགུལ་ངང་སྡུད་སྡེར་%1ནི་རྒྱུད་ཁོངས་སྡེར་དང་། སྡུད་སྡེར་%2ནི་གཞི་གྲངས་སྡེར་ལ་ངོས་འཛིན་གྱི་ཡོད།</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>
@@ -2112,7 +2118,7 @@
     <message>
         <location filename="../src/service/password_manager.cpp" line="133"/>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་དང་སྤྱོད་མཁན་མིང་གཅིག་པ་ཡིན་མི་རུང་།</translation>
     </message>
     <message>
         <location filename="../src/service/password_manager.cpp" line="143"/>
@@ -2127,22 +2133,22 @@
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1121"/>
         <source>Partitioning...</source>
-        <translation type="unfinished"/>
+        <translation>ཁུལ་དབྱེ་བཞིན་པ།</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1124"/>
         <source>Decompressing files...</source>
-        <translation type="unfinished"/>
+        <translation>ཡིག་ཆ་གསེད་དཀྲོལ་བྱེད་བཞིན་པ།</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1127"/>
         <source>Installing system...</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱུད་ཁོངས་སྒྲིག་འཇུག་བྱེད་བཞིན་པ།</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1130"/>
         <source>Initial backup in progress...</source>
-        <translation type="unfinished"/>
+        <translation>འགོ་འཛུགས་ཅན་གྲབས་ཉར་བྱེད་བཞིན་པ།</translation>
     </message>
     <message>
         <location filename="../src/service/settings_manager.cpp" line="1133"/>

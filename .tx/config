@@ -3,7 +3,7 @@ host = https://www.transifex.com
 minimum_perc = 80
 mode = developer
 
-[deepin-installer-reborn.deepin-installer]
+[o:linuxdeepin:p:deepin-installer-reborn:r:deepin-installer]
 file_filter = i18n/deepin-installer-<lang>.ts
 source_file = i18n/deepin-installer.ts
 source_lang = en

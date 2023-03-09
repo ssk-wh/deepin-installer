@@ -622,13 +622,13 @@
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="51"/>
         <source>You need at least %1 GB of disk space to install the system. If you want to use the full-disk installation, a minimum of %2 GB is required.</source>
-        <translation type="unfinished"/>
+        <translation>Necesita al menos %1 GB de espacio en disco para instalar el sistema. Si desea utilizar la instalación de disco completo, se requiere un mínimo de %2 GB.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="58"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="273"/>
         <source>The free disk space is less than %1 GB, so you should configure partitions manually. To use the full-disk installation, a minimum of %2 GB is required.</source>
-        <translation type="unfinished"/>
+        <translation>El espacio libre en disco es inferior a %1 GB, por lo que debe configurar las particiones manualmente. Para usar la instalación de disco completo, se requiere un mínimo de %2 GB.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/disk_space_insufficient_frame.cpp" line="96"/>
@@ -861,7 +861,7 @@
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="327"/>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="338"/>
         <source>Encrypt This Disk</source>
         <translation>Cifrar este disco</translation>
@@ -894,15 +894,21 @@
         <translation>Repita la contraseña</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="262"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="261"/>
         <source>Keep User Data</source>
         <translation>Conservar los datos del usuario</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="263"/>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="350"/>
         <source>Please select a disk to start installation</source>
         <translation>Por favor seleccione un disco para iniciar la instalación</translation>
+    </message>
+    <message>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="264"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="355"/>
+        <source>Using disk encryption may affect disk performance.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="265"/>
@@ -915,7 +921,7 @@
         <translation>Guardar datos del usuario</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="507"/>
+        <location filename="../src/ui/frames/inner/full_disk_frame.cpp" line="514"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="120"/>
         <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="239"/>
         <location filename="../src/ui/widgets/advanced_partition_button.cpp" line="181"/>
@@ -1620,7 +1626,7 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="294"/>
         <source>The partition is created on an unavailable device, so its configurations will be reset</source>
-        <translation type="unfinished"/>
+        <translation>La partición se creo en un dispositivo no disponible, por lo que sus configuraciones se restablecerán</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="298"/>
@@ -1673,12 +1679,12 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="1295"/>
         <source>Disk Assignment</source>
-        <translation type="unfinished"/>
+        <translation>Asignación de disco</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="1316"/>
         <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
-        <translation type="unfinished"/>
+        <translation>El disco &quot;%1&quot; será el disco del sistema y el disco &quot;%2&quot; será el disco de datos de forma predeterminada.</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/repair_system_frame.cpp" line="166"/>
