@@ -300,6 +300,10 @@ bool Delegate::createPartition(const Partition::Ptr partition,
         if (operations_.last()->device->table == PartitionTableType::GPT) {
             partition->length -= 33;
             partition->end_sector -= 33;
+        } else {
+            // MBR table 预留一个扇区区的空间
+            partition->length -= 1;
+            partition->end_sector -= 1;
         }
     }
 
