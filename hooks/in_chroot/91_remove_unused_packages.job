@@ -24,7 +24,7 @@
 
 # Check whether btrfs filesystem is used in machine.
 detect_btrfs() {
-  for i in $(lsblk -o FSTYPE | sed '/^$/d' | uniq); do
+  for i in $(-o FSTYPE | sed '/^$/d' | uniq); do
     [ "${i}" = "btrfs" ] && return 0
   done
   return 1

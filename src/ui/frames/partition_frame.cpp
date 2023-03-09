@@ -295,6 +295,11 @@ void PartitionFrame::changeEvent(QEvent* event) {
       m_private->device_change_warnning_frame->setEnterButtonText(::QObject::tr("OK"));
       m_private->device_change_warnning_frame->setCancelButtonText(::QObject::tr("Cancel"));
 
+      m_private->auto_select_disk_widget->setTitle(::QObject::tr("Disk Assignment"));
+      m_private->auto_select_disk_widget->setEnterButtonText(::QObject::tr("OK"));
+      m_private->auto_select_disk_widget->setCancelButtonText(::QObject::tr("Cancel"));
+
+
     m_private->simple_frame_button_->setText(::QObject::tr("Simple"));
     m_private->advanced_frame_button_->setText(::QObject::tr("Advanced"));
     m_private->full_disk_frame_button_->setText(::QObject::tr("Full Disk"));
@@ -764,6 +769,10 @@ void PartitionFramePrivate::initUI() {
   }
 
   m_buttonGroup->setVisible(true);
+  auto_select_disk_widget = new WarnningFrame(nullptr);
+  auto_select_disk_widget->setTitle(::QObject::tr("Disk Assignment"));
+  auto_select_disk_widget->setEnterButtonText(::QObject::tr("OK"));
+  auto_select_disk_widget->setCancelButtonText(::QObject::tr("Cancel"));
 
   QHBoxLayout* button_layout = new QHBoxLayout();
   button_layout->setContentsMargins(0, 0, 0, 0);
@@ -1290,28 +1299,22 @@ void PartitionFramePrivate::showResizeRootFrame()
 
 void PartitionFramePrivate::showAutoAutoSelectWidget(QString &sysDeviceName, QString dataDeviceName)
 {
-    if (auto_select_disk_widget == nullptr) {
-        auto_select_disk_widget = new WarnningFrame(nullptr);
-        auto_select_disk_widget->setTitle(::QObject::tr("Disk Assignment"));
-        auto_select_disk_widget->setEnterButtonText(::QObject::tr("OK"));
-        auto_select_disk_widget->setCancelButtonText(::QObject::tr("Cancel"));
+    connect(auto_select_disk_widget, &WarnningFrame::quitEntered, this, [=] {
+        q_ptr->m_proxy->hideChildFrame();
+        q_ptr->repaint();
+        full_disk_partition_frame_->setDeviceByAutoSelectDisk();
+    });
 
-        connect(auto_select_disk_widget, &WarnningFrame::quitEntered, this, [=] {
-            q_ptr->m_proxy->hideChildFrame();
-            q_ptr->repaint();
-            full_disk_partition_frame_->setDeviceByAutoSelectDisk();
-        });
+    connect(auto_select_disk_widget, &WarnningFrame::quitCanceled, this, [=] {
+        q_ptr->m_proxy->hideChildFrame();
+        q_ptr->repaint();
+    });
 
-        connect(auto_select_disk_widget, &WarnningFrame::quitCanceled, this, [=] {
-            q_ptr->m_proxy->hideChildFrame();
-            q_ptr->repaint();
-        });
+    connect(auto_select_disk_widget, &WarnningFrame::quitclosed, this, [=] {
+        q_ptr->m_proxy->hideChildFrame();
+        q_ptr->repaint();
+    });
 
-        connect(auto_select_disk_widget, &WarnningFrame::quitclosed, this, [=] {
-            q_ptr->m_proxy->hideChildFrame();
-            q_ptr->repaint();
-        });
-    }
     auto_select_disk_widget->setComment(
             ::QObject::tr("The \"%1\" disk will be the system disk and the \"%2\" disk will be data disk by default.")
             .arg(sysDeviceName, dataDeviceName));
