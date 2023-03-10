@@ -30,6 +30,7 @@ customize_user() {
   ROOTPASSWORD=$(installer_get "DI_ROOTPASSWORD")
   LOCALE=$(installer_get "DI_LOCALE")
   XLAYOUT=$(installer_get "DI_LAYOUT")
+  LAYOUT_VARIANT=$(installer_get "DI_LAYOUT_VARIANT")
   # Disable fallback mode
   deepin-installer-settings set "${USER_CONF}" \
     "User" "XSession" "deepin"
@@ -39,7 +40,7 @@ customize_user() {
   #task101679
   #把键盘和语言的配置写到/var/lib/AccountsService/deepin/users/下
   deepin-installer-settings set "${USER_CONF}" \
-  "User" "Layout" "${XLAYOUT}"
+  "User" "Layout" "${XLAYOUT};${LAYOUT_VARIANT}"
   deepin-installer-settings set "${USER_CONF}" \
   "User" "Locale" "${LOCALE}.UTF-8"
   echo "cat ${USER_CONF}"
@@ -47,9 +48,11 @@ customize_user() {
   #如果启用root
   if [ -n "${ROOTPASSWORD}" ]; then
     deepin-installer-settings set "${ROOT_CONF}" \
-    "User" "Layout" "${XLAYOUT}"
+    "User" "Layout" "${XLAYOUT};${LAYOUT_VARIANT}"
     deepin-installer-settings set "${ROOT_CONF}" \
     "User" "Locale" "${LOCALE}.UTF-8"
+    #去掉双引号
+    sed -i 's/\"'"${XLAYOUT};${LAYOUT_VARIANT}"'\"/'"${XLAYOUT};${LAYOUT_VARIANT}"'/g' ${ROOT_CONF}
     echo "cat ${ROOT_CONF}"
     cat ${ROOT_CONF}
   fi
@@ -66,6 +69,11 @@ customize_user() {
     deepin-installer-settings set "${USER_CONF}" \
       "User" "GreeterBackground" "file://${SYS_LIGHTDM_BACKGROUND}"
   fi
+
+  #去掉双引号
+  sed -i 's/\"'"${XLAYOUT};${LAYOUT_VARIANT}"'\"/'"${XLAYOUT};${LAYOUT_VARIANT}"'/g' ${USER_CONF}
+  echo "cat ${USER_CONF}"
+  cat ${USER_CONF}
 }
 
 if [ x$(installer_get "system_info_setup_after_reboot") != xtrue ]; then
