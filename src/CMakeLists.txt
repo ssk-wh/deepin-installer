@@ -14,8 +14,8 @@ endif()
 
 if (CMAKE_BUILD_TYPE MATCHES Debug)
     # 默认优化编译参数
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O2 ")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wno-unused-result -Wno-switch-default -Wno-padded")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-unused-result -Wno-switch-default -Wno-padded")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unused-function -Wno-reorder -Werror")
     # 安全编译参数
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -z noexecstack -pie -fPIC -z relro -z now -fstack-protector-all")

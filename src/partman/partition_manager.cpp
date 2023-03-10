@@ -362,6 +362,13 @@ DeviceList ScanDevices(bool enable_os_prober) {
        str = process.readLine();
    }
 
+    //启动盘设备节点
+    QString installBootDisk = "/dev/";
+    QString output;
+    SpawnCmd("/usr/bin/bash",
+             QStringList() << "-c" <<
+             "lsblk -ro NAME,PKNAME,MOUNTPOINT | grep -E '/usr/lib/live/mount/medium$' | awk '{print $2}'", output);
+    installBootDisk += output.trimmed();
   // Let libparted detect all devices and construct device list.
   ped_device_probe_all();
 
@@ -541,8 +548,11 @@ DeviceList ScanDevices(bool enable_os_prober) {
         qCritical() << "Failed to get disk object:" << device->path;
       }
     }
+    //过滤启动盘
+    if (!installBootDisk.startsWith(device->path)) {
+        devices.append(device);
+    }
 
-    devices.append(device);
   }
 
   // Add simulated disks in debug mode for debugging the partition frame.
