@@ -88,7 +88,7 @@ print_log() {
 
 # 获取最高分辨率
 max_mode() {
-    local mode=`xrandr -q | awk '{print $1}' | grep -E '[0-9]+x[0-9]+$' | sort -rn | sed -n 1p`
+    local mode=`xrandr -q | awk '{print $1}' | grep -E '[0-9]+x[0-9]+$' | sort -tx -k 1nr -k 2nr | sed -n 1p`
     echo ${mode}
 }
 
@@ -101,6 +101,17 @@ optimal_mode() {
 # 处理设置屏幕
 setup_monitors() {
     local pri_mon=$(monitors_primary)
+    # 华为设备老式显示器适配，华为硬件对x11支持不好，需要模拟拔插显示器才能点亮。
+    local system_product_name=$(dmidecode -s  system-product-name)
+    if [[ $system_product_name =~ "KLVV" ]] ||
+    [[ $system_product_name =~ "KLVU" ]] ||
+    [[ $system_product_name =~ "PGUW" ]] ||
+    [[ $system_product_name =~ "PGUV" ]]; then
+        xrandr --output $pri_mon --off
+        xrandr --output $pri_mon --auto
+        echo "adapt to ${system_product_name}"
+    fi
+
     if [ ! -n "$pri_mon" ];then
         # 设置主屏幕，兼容都是dpi输出且输出屏幕位置重合的情况,兼容无主屏输出的情况
         monitors_list | xargs -d" " -I {} xrandr --output {} --auto --primary || xrandr
