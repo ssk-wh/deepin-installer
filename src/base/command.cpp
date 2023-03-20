@@ -119,8 +119,8 @@ bool SpawnCmd(const QString& cmd, const QStringList& args,
             return true;
         }
 
-        qDebug() << err;
-        qDebug() << "try again!!!!!";
+        qWarning() << err;
+        qWarning() << "try again!!!!!";
         QThread::sleep(1);
     }
 

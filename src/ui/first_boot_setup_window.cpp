@@ -562,22 +562,18 @@ void FirstBootSetupWindow::showFailedLog()
     showChildFrame(optimize_failed_frame_);
 }
 
-void FirstBootSetupWindow::onHookFinished(bool ok) {
+void FirstBootSetupWindow::onHookFinished(bool ok)
+{
     if (!ok) {
         this->showFailedLog();
-    }
-    else if (QFile::exists("/usr/sbin/lightdm")) {
-        qDebug() << SpawnCmd("systemctl", QStringList() << "restart" << "lightdm");
-    }
-    else if (!changeToTTY(2)) {
-        if (!RebootSystemWithMagicKey()) {
+    } else {
+        QString output, error;
+        if (!SpawnCmd("systemctl", QStringList() << "restart" << "lightdm", output, error, 3)) {
+            qWarning() << QString("restart lightdm failed:%1").arg(error);
             RebootSystem();
+        } else {
+            qInfo() << "restart lightdm succuss";
         }
-        qDebug() << SpawnCmd("killall", QStringList() << "lightdm");
-    }
-    else {
-        qApp->quit();
-        qDebug() << SpawnCmd("systemctl", QStringList() << "stop" << "lightdm");
     }
 }
 

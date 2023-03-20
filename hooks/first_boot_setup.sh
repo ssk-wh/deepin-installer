@@ -212,10 +212,8 @@ main() {
   remove_component_packages
   setup_default_target
   first_boot_oem || true  # 后配置定制脚本运行,　脚本运行错误不影响主流程
-  setup_log          # 加密日志中敏感字符
-  uninstall_packages # 这一步必须是最后一步
-  sync
-  #专有设备创建初始化备份
+
+   #专有设备创建初始化备份
   if is_device; then
     echo "y" | /usr/sbin/uos-backup-restore --start-lower
   fi
@@ -224,6 +222,11 @@ main() {
     # 处理/var/lib/lightdm/.config 属组为root问题 bug 156573
     chown lightdm:lightdm /var/lib/lightdm/.config
   fi
+
+  setup_log          # 加密日志中敏感字符
+  uninstall_packages # 这一步必须是最后一步
+  sync
+
 }
 
 main
