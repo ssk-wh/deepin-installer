@@ -42,6 +42,7 @@ FirstBootHookWorker::FirstBootHookWorker(QObject* parent) : QObject(parent) {
 }
 
 void FirstBootHookWorker::doStartHook() {
+    qInfo() << __LINE__ << __FUNCTION__;
     QString out, err;
     // QProcess::ForwardedOutputChannel 将正常日志输出到合并到程序的标准输出中
     int timeout = GetSettingsInt(kSystemFirstBootTimeout);

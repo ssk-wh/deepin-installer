@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="en" sourcelanguage="en">
+<TS version="2.1" language="en" sourcelanguage="en">
 <context>
     <name>ConfirmQuitFrame</name>
     <message>
         <location filename="../src/ui/frames/confirm_quit_frame.cpp" line="90"/>
         <source>Continue</source>
         <translation>Continue</translation>
-    </message>
-</context>
-<context>
-    <name>DSysInfo::Deepin::QObject</name>
-    <message>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
-        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
-        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="423"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
-        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="132"/>
-        <source>Deepin</source>
-        <translation>Deepin</translation>
     </message>
 </context>
 <context>
@@ -81,7 +68,7 @@
         <location filename="../src/ui/frames/networkframe.cpp" line="772"/>
         <location filename="../src/ui/frames/networkframe.cpp" line="1085"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="285"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1122"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1131"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="110"/>
         <location filename="../src/ui/frames/system_info_frame.cpp" line="184"/>
         <location filename="../src/ui/frames/timezone_frame.cpp" line="133"/>
@@ -106,7 +93,7 @@
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="100"/>
         <location filename="../src/ui/frames/inner/select_bootloader_frame.cpp" line="144"/>
         <location filename="../src/ui/frames/inner/user_agreement_frame.cpp" line="128"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1017"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1026"/>
         <location filename="../src/ui/frames/saveinstallfailedlogframe.cpp" line="205"/>
         <source>Back</source>
         <comment>button</comment>
@@ -492,6 +479,12 @@
     </message>
     <message>
         <location filename="../src/ui/delegates/license_delegate.cpp" line="54"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="84"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="144"/>
+        <location filename="../src/ui/frames/inner/partition_table_warning_frame.cpp" line="157"/>
+        <location filename="../src/ui/frames/inner/simple_partition_frame.cpp" line="423"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="74"/>
+        <location filename="../src/ui/frames/virtual_machine_frame.cpp" line="132"/>
         <source>Deepin</source>
         <translation>Deepin</translation>
     </message>
@@ -666,7 +659,8 @@
         <location filename="../src/ui/frames/inner/resize_root_frame.cpp" line="163"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="291"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="296"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1297"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="300"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="775"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="249"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="261"/>
         <location filename="../src/ui/frames_cli/inner/partition_table_warning_frame.cpp" line="97"/>
@@ -710,7 +704,7 @@
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="232"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="323"/>
         <location filename="../src/ui/frames/inner/advanced_partition_frame.cpp" line="735"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1246"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1255"/>
         <source>Delete</source>
         <translation>Delete</translation>
     </message>
@@ -876,8 +870,8 @@
     <message>
         <location filename="../src/ui/frames/inner/full_disk_encrypt_frame.cpp" line="330"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="284"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="741"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1124"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="746"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1133"/>
         <source>Make sure you have backed up important data, then select the disk to install</source>
         <translation>Make sure you have backed up important data, then select the disk to install</translation>
     </message>
@@ -1085,8 +1079,8 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="207"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="321"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="280"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1018"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1041"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1027"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1050"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="88"/>
         <source>Ready to Install</source>
         <translation>Ready to Install</translation>
@@ -1095,7 +1089,7 @@
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="209"/>
         <location filename="../src/ui/frames/inner/prepare_install_frame.cpp" line="323"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="279"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1040"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1049"/>
         <location filename="../src/ui/frames_cli/inner/prepare_install_frame.cpp" line="92"/>
         <source>Make a backup of your important data and then continue</source>
         <translation>Make a backup of your important data and then continue</translation>
@@ -1612,15 +1606,15 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="215"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="282"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="738"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1121"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="743"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1130"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="88"/>
         <source>Create Partitions</source>
         <translation>Create Partitions</translation>
     </message>
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="277"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1038"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1047"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="572"/>
         <source>Edit LVM Disk</source>
         <translation>Edit LVM Disk</translation>
@@ -1631,14 +1625,14 @@
         <translation>The partition is created on an unavailable device, so its configurations will be reset</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="298"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="748"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="303"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="753"/>
         <source>Simple</source>
         <translation>Simple</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="299"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="751"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="304"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="756"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="101"/>
         <location filename="../src/ui/frames_cli/inner/advanced_partition_frame.cpp" line="550"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="97"/>
@@ -1646,45 +1640,46 @@
         <translation>Advanced</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="300"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="755"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="305"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="760"/>
         <location filename="../src/ui/frames_cli/inner/full_disk_frame.cpp" line="94"/>
         <location filename="../src/ui/frames_cli/partition_frame.cpp" line="96"/>
         <source>Full Disk</source>
         <translation>Full Disk</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="818"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="827"/>
         <source>Start installation</source>
         <translation>Start installation</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="993"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1002"/>
         <source>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</source>
         <translation>The target disk is dynamic, and your data may be lost if proceeding. Please make a backup of your important files first.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="997"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1006"/>
         <source>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</source>
         <translation>The target disk is dynamic which will be formatted if proceeding. Please make a backup of your important files first.</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1244"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1253"/>
         <source>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</source>
         <translation>The &quot;/data/home&quot; directory is found. If you do not keep it, the data saved in it by previous users will be lost. Keep or delete it?</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1245"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1254"/>
         <source>Keep</source>
         <translation>Keep</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1295"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="298"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="773"/>
         <source>Disk Assignment</source>
         <translation>Disk Assignment</translation>
     </message>
     <message>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1316"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="1319"/>
         <source>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</source>
         <translation>The &quot;%1&quot; disk will be the system disk and the &quot;%2&quot; disk will be data disk by default.</translation>
     </message>
@@ -1745,7 +1740,8 @@
     <message>
         <location filename="../src/ui/frames/partition_frame.cpp" line="290"/>
         <location filename="../src/ui/frames/partition_frame.cpp" line="295"/>
-        <location filename="../src/ui/frames/partition_frame.cpp" line="1296"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="299"/>
+        <location filename="../src/ui/frames/partition_frame.cpp" line="774"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="65"/>
         <location filename="../src/ui/frames/swap_warnning_frame.cpp" line="133"/>
         <location filename="../src/ui/frames/warnning_frame.cpp" line="248"/>

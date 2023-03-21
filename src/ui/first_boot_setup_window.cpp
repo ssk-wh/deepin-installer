@@ -566,19 +566,30 @@ void FirstBootSetupWindow::onHookFinished(bool ok)
 {
     if (!ok) {
         this->showFailedLog();
-    } else {
-        QString output, error;
-        if (!SpawnCmd("systemctl", QStringList() << "restart" << "lightdm", output, error, 3)) {
-            qWarning() << QString("restart lightdm failed:%1").arg(error);
+        qInfo() << __LINE__ << "showFailedLog";
+    }
+    else if (QFile::exists("/usr/sbin/lightdm")) {
+        qInfo() << SpawnCmd("systemctl", QStringList() << "restart" << "lightdm");
+        qInfo() << __LINE__ << "restart lightdm service";
+    }
+    else if (!changeToTTY(2)) {
+        if (!RebootSystemWithMagicKey()) {
             RebootSystem();
-        } else {
-            qInfo() << "restart lightdm succuss";
+            qInfo() << __LINE__ << "RebootSystem";
         }
+        qDebug() << SpawnCmd("killall", QStringList() << "lightdm");
+        qInfo() << __LINE__ << "killall lightdm";
+    }
+    else {
+        qApp->quit();
+        qDebug() << SpawnCmd("systemctl", QStringList() << "stop" << "lightdm");
+        qInfo() << __LINE__ << "just stop lightdm";
     }
 }
 
 void FirstBootSetupWindow::onLanguageSelected()
 {
+    qInfo() << __LINE__ << __FUNCTION__;
     if (GetSettingsBool(kSkipTimezonePage)) {
         return onTimezoneFinished();
     }
@@ -589,6 +600,7 @@ void FirstBootSetupWindow::onLanguageSelected()
 }
 
 void FirstBootSetupWindow::onSystemInfoFinished() {
+  qInfo() << __LINE__ << __FUNCTION__;
   if (GetSettingsBool(kSkipNetworkPage)) {
     this->onNetworkFinished();
   } else {
@@ -599,6 +611,7 @@ void FirstBootSetupWindow::onSystemInfoFinished() {
 
 void FirstBootSetupWindow::onNetworkFinished()
 {
+    qInfo() << __LINE__ << __FUNCTION__;
     if (GetSettingsBool(kSkipControlPlatformPage)) {
         return onStartRunHooks();
     }
@@ -610,10 +623,12 @@ void FirstBootSetupWindow::onNetworkFinished()
 
 void FirstBootSetupWindow::onStartRunHooks()
 {
+    qInfo() << __LINE__ << __FUNCTION__;
     emit hook_worker_->startHook();
 }
 
 void FirstBootSetupWindow::onTimezoneFinished() {
+    qInfo() << __LINE__ << __FUNCTION__;
     if (!GetSettingsBool(kSkipSystemInfoPage)) {
         stacked_layout_->setCurrentWidget(system_info_frame_);
     }

@@ -19,6 +19,7 @@
 
 #include <QEvent>
 #include <QVBoxLayout>
+#include <QDebug>
 
 #include "ui/frames/consts.h"
 #include "ui/widgets/comment_label.h"
@@ -37,6 +38,7 @@ FirstBootLoadingFrame::FirstBootLoadingFrame(FrameProxyInterface *frameProxyInte
 
 void FirstBootLoadingFrame::init()
 {
+    qInfo() << __LINE__ << __FUNCTION__;
     emit startRunHooks();
 }
 
