@@ -54,7 +54,7 @@ namespace {
     int kMaxIncrementYear = 30;
 }
 
-class SystemDateFramePrivate : public QWidget{
+class SystemDateFramePrivate : public QObject{
     Q_OBJECT
 public:
     SystemDateFramePrivate(SystemDateFrame* qq) : m_ptr(qq) {}
@@ -62,17 +62,17 @@ public:
     QLabel* m_title = new TitleLabel(tr("Time settings"));
     CommentLabel* m_commentLabel = new CommentLabel(tr("Change date and time as you want"));
 
-    TimeDateLineEdit* m_hourEdit = new TimeDateLineEdit(this);
-    TimeDateLineEdit* m_minuteEdit = new TimeDateLineEdit(this);
+    TimeDateLineEdit* m_hourEdit = new TimeDateLineEdit;
+    TimeDateLineEdit* m_minuteEdit = new TimeDateLineEdit;
     PointerButton* m_addYearBtn   = new PointerButton;
     PointerButton* m_minusYearBtn = new PointerButton;
-    TimeDateLineEdit* m_yearEdit = new TimeDateLineEdit(this);
+    TimeDateLineEdit* m_yearEdit = new TimeDateLineEdit;
     PointerButton* m_addMonthBtn = new PointerButton;
     PointerButton* m_minusMonthBtn = new PointerButton;
-    TimeDateLineEdit* m_monthEdit = new TimeDateLineEdit(this);
+    TimeDateLineEdit* m_monthEdit = new TimeDateLineEdit;
     PointerButton* m_minusDayBtn = new PointerButton;
     PointerButton* m_addDayBtn = new PointerButton;
-    TimeDateLineEdit* m_dayEdit = new TimeDateLineEdit(this);
+    TimeDateLineEdit* m_dayEdit = new TimeDateLineEdit;
 
     QLabel* m_hourLabel = new QLabel;
     QLabel* m_minuteLabel = new QLabel;
